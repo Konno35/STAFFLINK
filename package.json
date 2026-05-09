@@ -1,0 +1,19 @@
+{
+  "name": "stafflink",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "netlify dev",
+    "dev:app": "cd app && npm run dev",
+    "build": "cd app && npm run build"
+  },
+  "dependencies": {
+    "@netlify/functions": "^2.8.0",
+    "@supabase/supabase-js": "^2.45.0",
+    "ws": "^8.20.0"
+  },
+  "devDependencies": {
+    "@types/ws": "^8.18.1",
+    "typescript": "^5.5.0"
+  }
+}
