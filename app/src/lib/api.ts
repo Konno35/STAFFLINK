@@ -1,10 +1,10 @@
-import { getAccessToken } from './liff';
+import { getIdToken } from './liff';
 import type { User, TenantSettings, AttendanceType } from '../types';
 
 const BASE = import.meta.env.VITE_API_BASE ?? '/api';
 
 async function req<T>(path: string, options: RequestInit = {}): Promise<T> {
-  const token = await getAccessToken();
+  const token = await getIdToken();
   const res = await fetch(`${BASE}${path}`, {
     ...options,
     headers: {

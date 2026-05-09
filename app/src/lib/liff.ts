@@ -18,9 +18,11 @@ export async function ensureLoggedIn(): Promise<void> {
   }
 }
 
-export async function getAccessToken(): Promise<string> {
+export async function getIdToken(): Promise<string> {
   await ensureLoggedIn();
-  return liff.getAccessToken()!;
+  const token = liff.getIDToken();
+  if (!token) throw new Error('IDトークンが取得できません。openidスコープが有効か確認してください。');
+  return token;
 }
 
 export async function getLineProfile() {
