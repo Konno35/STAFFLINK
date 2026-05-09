@@ -11,7 +11,7 @@ export default function Assignments() {
   const [admins, setAdmins] = useState<AdminOption[]>([]);
   const [modal, setModal] = useState<'create' | Assignment | null>(null);
   const [deleteTarget, setDeleteTarget] = useState<Assignment | null>(null);
-  const [form, setForm] = useState({ name: '', workLocation: '', managerId: '', status: 'active' });
+  const [form, setForm] = useState<{ name: string; workLocation: string; managerId: string; status: 'active' | 'inactive' }>({ name: '', workLocation: '', managerId: '', status: 'active' });
   const [saving, setSaving] = useState(false);
   const [flash, setFlash] = useState<{ ok: boolean; msg: string } | null>(null);
 
@@ -141,7 +141,7 @@ export default function Assignments() {
             {modal !== 'create' && (
               <div className="form-row">
                 <label className="form-label" htmlFor="asgn-status">ステータス</label>
-                <select id="asgn-status" className="input select" value={form.status} onChange={e => setForm(p => ({ ...p, status: e.target.value }))}>
+                <select id="asgn-status" className="input select" value={form.status} onChange={e => setForm(p => ({ ...p, status: e.target.value as 'active' | 'inactive' }))}>
                   <option value="active">有効</option>
                   <option value="inactive">無効</option>
                 </select>
