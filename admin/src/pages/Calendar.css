@@ -1,0 +1,117 @@
+.cal-month-label {
+  font-size: 16px;
+  font-weight: 700;
+  min-width: 90px;
+  text-align: center;
+}
+
+.cal-wrap {
+  overflow-x: auto;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+}
+
+.cal-table {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 600px;
+}
+
+.cal-table th {
+  padding: 8px 4px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #6b7280;
+  border-bottom: 1px solid #e5e7eb;
+  background: #f9fafb;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.cal-name-col { min-width: 100px; text-align: left; padding-left: 12px; }
+.cal-day-col  { min-width: 28px; }
+.cal-sun { color: #dc2626; }
+.cal-sat { color: #2563eb; }
+
+.cal-name {
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.cal-cell {
+  width: 28px;
+  height: 30px;
+  text-align: center;
+  font-size: 12px;
+  cursor: pointer;
+  border-bottom: 1px solid #f3f4f6;
+  border-left: 1px solid #f3f4f6;
+  transition: background 0.1s;
+}
+
+.cal-cell:hover { background: #f0fdf4; }
+
+.cal-cell-present    { color: #16a34a; font-weight: 700; }
+.cal-cell-shift-only { color: #ca8a04; }
+.cal-cell-none       { color: #d1d5db; }
+
+.cal-legend {
+  display: flex;
+  gap: 16px;
+  margin-top: 10px;
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.legend-item { display: flex; align-items: center; gap: 4px; }
+.legend-dot  { font-size: 13px; }
+
+/* Detail modal */
+.detail-shift {
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  border-radius: 7px;
+  padding: 8px 12px;
+  font-size: 13px;
+  color: #1d4ed8;
+  margin-bottom: 14px;
+}
+
+.detail-logs-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 8px;
+}
+
+.detail-logs { display: flex; flex-direction: column; gap: 8px; }
+
+.detail-log-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 8px;
+  background: #f9fafb;
+  border-radius: 7px;
+}
+
+.detail-log-info {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  flex: 1;
+}
+
+.detail-log-time { font-size: 13px; color: #374151; }
+.detail-gps      { font-size: 11px; color: #6b7280; }
+.detail-note     { font-size: 11px; color: #6b7280; width: 100%; }
+
+.detail-log-actions { display: flex; gap: 4px; flex-shrink: 0; }
+
+.detail-time-input { max-width: 180px; }

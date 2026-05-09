@@ -1,0 +1,48 @@
+.settings-section       { margin-bottom: 20px; }
+.settings-section-title { font-size: 15px; font-weight: 700; margin-bottom: 14px; }
+.settings-save-btn      { margin-top: 14px; }
+
+.settings-toggle-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+  cursor: pointer;
+  border-bottom: 1px solid #f3f4f6;
+  font-size: 14px;
+}
+
+.settings-checkbox { width: 16px; height: 16px; cursor: pointer; }
+
+.settings-group-list { margin-bottom: 12px; }
+
+.settings-group-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 0;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.settings-group-name  { flex: 1; font-size: 13px; }
+.settings-group-input { max-width: 200px; }
+
+.settings-group-add {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.settings-sheets-note {
+  font-size: 12px;
+  color: #6b7280;
+  margin-top: 6px;
+}
+
+.settings-sheets-note code {
+  background: #f3f4f6;
+  padding: 1px 5px;
+  border-radius: 4px;
+  font-family: ui-monospace, Consolas, monospace;
+}

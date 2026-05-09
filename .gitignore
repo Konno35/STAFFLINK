@@ -5,3 +5,4 @@ dist/
 .netlify/
 .claude/
 *.log
+side_business_strategy.md

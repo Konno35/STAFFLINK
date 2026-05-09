@@ -4,9 +4,10 @@ import { getMe, getSettings } from './lib/api';
 import type { User, TenantSettings } from './types';
 import Home from './pages/Home';
 import Register from './pages/Register';
-import Admin from './pages/Admin';
+import UserCalendar from './pages/UserCalendar';
+import './index.css';
 
-type Screen = 'loading' | 'register' | 'home' | 'admin' | 'no-invite' | 'error';
+type Screen = 'loading' | 'register' | 'home' | 'calendar' | 'no-invite' | 'error';
 
 function getInviteParams() {
   const p = new URLSearchParams(window.location.search);
@@ -50,27 +51,19 @@ export default function App() {
   const invite = getInviteParams();
 
   if (screen === 'loading') {
-    return (
-      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100svh' }}>
-        <div style={{ color: '#6b7280', fontSize: 14 }}>読み込み中...</div>
-      </div>
-    );
+    return <div className="loading-screen"><div className="loading-text">読み込み中...</div></div>;
   }
 
   if (screen === 'error') {
-    return (
-      <div style={{ padding: 24, textAlign: 'center', color: '#dc2626', fontSize: 14 }}>
-        {errorMsg}
-      </div>
-    );
+    return <div className="error-screen">{errorMsg}</div>;
   }
 
   if (screen === 'no-invite') {
     return (
-      <div style={{ padding: 40, textAlign: 'center' }}>
-        <div style={{ fontSize: 40, marginBottom: 16 }}>🔗</div>
-        <div style={{ fontWeight: 600, marginBottom: 8 }}>招待リンクからアクセスしてください</div>
-        <div style={{ fontSize: 13, color: '#6b7280' }}>管理者から送られた招待URLを開いてください</div>
+      <div className="no-invite-screen">
+        <div className="no-invite-icon">🔗</div>
+        <div className="no-invite-title">招待リンクからアクセスしてください</div>
+        <div className="no-invite-sub">管理者から送られた招待URLを開いてください</div>
       </div>
     );
   }
@@ -79,24 +72,17 @@ export default function App() {
     return <Register token={invite.token} tenantId={invite.tenant} onRegistered={load} />;
   }
 
-  if ((screen === 'home' || screen === 'admin') && user && tenantId && settings) {
-    if (screen === 'admin') {
-      return (
-        <Admin
-          currentUser={user}
-          tenantId={tenantId}
-          settings={settings}
-          onSettingsUpdated={s => setSettings(s)}
-          onBack={() => setScreen('home')}
-        />
-      );
-    }
+  if (screen === 'calendar' && user && tenantId && settings) {
+    return <UserCalendar onBack={() => setScreen('home')} />;
+  }
+
+  if (screen === 'home' && user && tenantId && settings) {
     return (
       <Home
         user={user}
         settings={settings}
         tenantId={tenantId}
-        onAdminClick={() => setScreen('admin')}
+        onCalendarClick={() => setScreen('calendar')}
       />
     );
   }

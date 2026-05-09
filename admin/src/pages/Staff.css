@@ -1,0 +1,50 @@
+.staff-invite-card { margin-bottom: 20px; }
+
+.staff-invite-title {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.staff-invite-filters {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+.staff-invite-row { flex: 1; min-width: 180px; }
+
+.staff-invite-result {
+  margin-top: 12px;
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.staff-invite-url-label { font-size: 11px; color: #166534; margin-bottom: 4px; }
+.staff-invite-url { font-size: 11px; word-break: break-all; color: #374151; margin-bottom: 8px; }
+
+.staff-assignments {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  align-items: center;
+}
+
+.select-sm { padding: 4px 8px; font-size: 12px; }
+
+.assign-modal-current { margin-bottom: 16px; }
+.assign-add-label     { margin-bottom: 8px; }
+
+.assign-empty { padding: 8px 0; }
+
+.assign-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 7px 0;
+  border-bottom: 1px solid #f3f4f6;
+  font-size: 13px;
+}

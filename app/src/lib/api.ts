@@ -28,9 +28,53 @@ export async function getSettings() {
 
 export async function recordAttendance(
   type: AttendanceType,
-  extra?: { notes?: string; departureTime?: string }
+  extra?: {
+    notes?: string;
+    departureTime?: string;
+    lateReason?: string;
+    estimatedArrival?: string;
+    overtimeReason?: string;
+    overtimeDuration?: string;
+    gpsLat?: number;
+    gpsLng?: number;
+    gpsDiscrepancyMeters?: number;
+  }
 ) {
   return req('/attendance', { method: 'POST', body: JSON.stringify({ type, ...extra }) });
+}
+
+export async function getTodayAttendance(date = 'today') {
+  return req<{ logs: TodayLog[]; date: string }>(`/attendance?date=${date}`);
+}
+
+export async function getMyShifts(month: string) {
+  return req<{ shifts: ShiftEntry[] }>(`/shifts?month=${month}`);
+}
+
+export async function submitCorrection(data: {
+  attendanceLogId?: string;
+  reason: string;
+  correctionType: 'time_change' | 'type_change' | 'delete';
+  requestedNewTime?: string;
+}) {
+  return req('/corrections', { method: 'POST', body: JSON.stringify(data) });
+}
+
+export interface TodayLog {
+  id: string;
+  type: string;
+  timestamp: string;
+  date: string;
+}
+
+export interface ShiftEntry {
+  id: string;
+  date: string;
+  startTime: string;
+  endTime: string;
+  workLocation?: string;
+  notes?: string;
+  assignmentName?: string;
 }
 
 export async function validateInvite(tenant: string, token: string) {
