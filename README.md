@@ -84,8 +84,8 @@
   - 承認済みリダイレクトURIに Supabase のコールバックURL (`https://<project>.supabase.co/auth/v1/callback`) を追加
 
 - **Database**
-  - `supabase/schema.sql` を新規DBに適用（初回のみ）
-  - `supabase/schema-migrations.sql` を既存DBに追加適用
+  - `docs/supabase/schema.sql` を新規DBに適用（初回のみ）
+  - `docs/supabase/schema-migrations.sql` を既存DBに追加適用
 
 ---
 
@@ -154,9 +154,11 @@ StaffLink/
 ├── netlify/
 │   └── functions/        # Netlify Functions (API サーバー)
 │       └── lib/          # 共通ライブラリ (DB接続・認証)
-├── supabase/
-│   ├── schema.sql        # 初回DB構築用
-│   └── schema-migrations.sql  # 追加マイグレーション
-├── netlify.toml          # LINE App サイト専用ビルド設定
-└── GAS/                  # Google Apps Script (スプレッドシート連携)
+├── docs/
+│   ├── supabase/
+│   │   ├── schema.sql             # 初回DB構築用
+│   │   └── schema-migrations.sql  # 追加マイグレーション
+│   └── gas/
+│       └── StaffLink.gs           # GASテンプレート (スプレッドシート連携)
+└── netlify.toml          # LINE App サイト専用ビルド設定
 ```
