@@ -12,6 +12,13 @@
 # Publish directory: admin/dist
 # VITE_API_BASE must point to this main site's URL
 
+[[headers]]
+  for = "/api/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
+    Access-Control-Allow-Headers = "Content-Type, Authorization"
+    Access-Control-Allow-Methods = "GET, POST, PUT, DELETE, OPTIONS"
+
 # /api/admin/me is handled by admin-auth.ts (not admin-me.ts)
 [[redirects]]
   from = "/api/admin/me"
