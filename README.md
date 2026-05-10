@@ -111,6 +111,53 @@ VALUES (
 
 ---
 
+## デプロイ
+
+### LINE Mini App サイト（Netlify CLI）
+
+このリポジトリは `stafflink-app.netlify.app` にリンク済み（`.netlify/state.json`）。
+
+```bash
+# 初回のみ：Netlify にログイン＆リンク確認
+netlify status
+
+# プレビューデプロイ（動作確認用）
+netlify deploy
+
+# 本番デプロイ
+netlify deploy --prod
+```
+
+環境変数の設定・確認：
+
+```bash
+# 一覧表示
+netlify env:list
+
+# 設定
+netlify env:set SUPABASE_URL "https://xxxx.supabase.co"
+netlify env:set SUPABASE_SERVICE_KEY "eyJ..."
+netlify env:set VITE_LIFF_ID "2010022290-xxxxxxxx"
+netlify env:set LINE_CHANNEL_ID "2010022290"
+netlify env:set ADMIN_SECRET "任意の文字列"
+```
+
+> 環境変数を変更したら再デプロイが必要
+
+---
+
+### Admin Web App サイト（GitHub 連携による自動デプロイ）
+
+`master` ブランチへの `git push` で Netlify が自動検知し `stafflink-admin.netlify.app` にデプロイされる。
+
+```bash
+git push origin master  # → Netlify が自動ビルド・デプロイ
+```
+
+手動でデプロイしたい場合は Netlify UI → **Deploys → Trigger deploy** から実行。
+
+---
+
 ## ローカル開発
 
 ### LINE Mini App
