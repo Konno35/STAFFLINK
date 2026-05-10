@@ -3,7 +3,13 @@
   publish = "dist"
 
 [build.environment]
-  VITE_API_BASE = "https://stafflink-app.netlify.app/api"
+  VITE_API_BASE = "/api"
+
+[[redirects]]
+  from = "/api/*"
+  to = "https://stafflink-app.netlify.app/api/:splat"
+  status = 200
+  force = true
 
 [[redirects]]
   from = "/*"
